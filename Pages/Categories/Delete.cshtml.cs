@@ -6,11 +6,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace SupermarketWEB.Pages.Categories
 {
-    public class CreateModel : PageModel
+    public class DeleteModel : PageModel
     {
         private readonly SupermarketContext _context;
 
-        public CreateModel(SupermarketContext context)
+        public DeleteModel(SupermarketContext context)
         {
             _context = context;
         }
@@ -18,7 +18,6 @@ namespace SupermarketWEB.Pages.Categories
         [BindProperty]
         public Category Category { get; set; } = default!;
 
-        // MÉTODO FALTANTE para cargar los datos
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null || _context.Categories == null)
