@@ -2,7 +2,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using SupermarketWEB.Data;
 using SupermarketWEB.Models;
-using Microsoft.EntityFrameworkCore;
 
 namespace SupermarketWEB.Pages.Categories
 {
@@ -18,39 +17,20 @@ namespace SupermarketWEB.Pages.Categories
         [BindProperty]
         public Category Category { get; set; } = default!;
 
-        // MÉTODO FALTANTE para cargar los datos
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public IActionResult OnGet()
         {
-            if (id == null || _context.Categories == null)
-            {
-                return NotFound();
-            }
-
-            Category = await _context.Categories.FirstOrDefaultAsync(m => m.Id == id);
-
-            if (Category == null)
-            {
-                return NotFound();
-            }
-
             return Page();
         }
 
-        public async Task<IActionResult> OnPostAsync(int? id)
+        public async Task<IActionResult> OnPostAsync()
         {
-            if (id == null || _context.Categories == null)
+            if (!ModelState.IsValid || _context.Categories == null || Category == null)
             {
-                return NotFound();
+                return Page();
             }
 
-            var category = await _context.Categories.FindAsync(id);
-
-            if (category != null)
-            {
-                Category = category;
-                _context.Categories.Remove(Category);
-                await _context.SaveChangesAsync();
-            }
+            _context.Categories.Add(Category);
+            await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
         }
