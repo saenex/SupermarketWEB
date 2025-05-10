@@ -12,7 +12,7 @@ namespace SupermarketWEB.Models
         public decimal Price { get; set; }
         public int Stock { get; set; }
         public int CategoryId { get; set; } // Llave foránea
-        public Category Category { get; set; } // Navegación a la tabla de categorías
+        public Category? Category { get; set; } // Navegación a la tabla de categorías
 
     }
 }
