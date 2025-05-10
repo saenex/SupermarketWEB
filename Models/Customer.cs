@@ -11,28 +11,31 @@ namespace SupermarketWEB.Models
         [Required]
         [Display(Name= "Document Number")]
         [MaxLength(15)]
-        public string DocumentNumber { get; set; } = string.Empty; // Número de documento
+        public string DocumentNumber { get; set; } // Número de documento
 
         [Required]
         [Display(Name = "First Name")]
         [MaxLength(50)]
-        public string FirstName { get; set; } = string.Empty; // Nombre
+        public string FirstName { get; set; } // Nombre
 
         [Required]
         [Display(Name = "Last Name")]
         [MaxLength(50)]
-        public string LastName { get; set; } = string.Empty; // Apellido
+        public string LastName { get; set; } // Apellido
+
+        [Display(Name = "Address")]
+        public string? Address { get; set; } // Dirección
 
         [DataType(DataType.Date)]
-        public DateTime Birtday { get; set; } // Fecha de nacimiento
+        public DateTime? BirthDate { get; set; } // Fecha de nacimiento
 
         [Display(Name = "Phone Number")]
         [MaxLength(50)]
-        public string PhoneNumber { get; set; } = string.Empty; // Número de teléfono
+        public string? Phone { get; set; }  // Número de teléfono
 
         [EmailAddress]
         [MaxLength(100)]
 
-        public string Email { get; set; } = string.Empty; // Correo electrónico
+        public string? Email { get; set; }  // Correo electrónico
     }
 }
