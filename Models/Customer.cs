@@ -37,5 +37,6 @@ namespace SupermarketWEB.Models
         [MaxLength(100)]
 
         public string? Email { get; set; }  // Correo electrónico
+
     }
 }
