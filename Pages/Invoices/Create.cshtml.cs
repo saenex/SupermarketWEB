@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using SupermarketWEB.Data;
 using SupermarketWEB.Models;
 
@@ -32,6 +33,9 @@ namespace SupermarketWEB.Pages.Invoices
                 ViewData["PayModeId"] = new SelectList(_context.PayModes, "Id", "Name", Invoice?.PayModeId);
                 return Page();
             }
+
+            var lastInvoice = await _context.Invoices.OrderByDescending(i => i.Number).FirstOrDefaultAsync();
+            Invoice.Number = (lastInvoice?.Number ?? 0) + 1;
 
             _context.Invoices.Add(Invoice);
             await _context.SaveChangesAsync();

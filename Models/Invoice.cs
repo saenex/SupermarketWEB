@@ -7,8 +7,10 @@ namespace SupermarketWEB.Models
     {
         public int Id { get; set; } //Llave primaria
 
-        [Required]
-        public int Number { get; set; } //Número de factura
+
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int Number { get; set; }
+
 
         [Required]
         [Display(Name = "Customer")]
