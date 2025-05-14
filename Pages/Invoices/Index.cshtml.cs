@@ -3,12 +3,15 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using SupermarketWEB.Data;
 using SupermarketWEB.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 
 namespace SupermarketWEB.Pages.Invoices
 {
+    [Authorize]
     public class IndexModel : PageModel
     {
+
         private readonly SupermarketContext _context;
         public IndexModel(SupermarketContext context)
         {
