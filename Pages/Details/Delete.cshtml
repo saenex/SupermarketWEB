@@ -1,4 +1,31 @@
 ﻿@page
 @model SupermarketWEB.Pages.Details.DeleteModel
 @{
+    ViewData["Title"] = "Delete";
 }
+
+<h1>Delete</h1>
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Detail</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">Invoice</dt>
+        <dd class="col-sm-10">@Model.Detail.InvoiceId</dd>
+
+        <dt class="col-sm-2">Product</dt>
+        <dd class="col-sm-10">@Model.Detail.Product?.Name</dd>
+
+        <dt class="col-sm-2">Quantity</dt>
+        <dd class="col-sm-10">@Model.Detail.Quantity</dd>
+
+        <dt class="col-sm-2">Price</dt>
+        <dd class="col-sm-10">@Model.Detail.Price</dd>
+    </dl>
+
+    <form method="post">
+        <input type="hidden" asp-for="Detail.Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" />
+        <a asp-page="./Index" class="btn btn-primary">Back to List</a>
+    </form>
+</div>
