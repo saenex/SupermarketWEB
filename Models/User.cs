@@ -5,6 +5,7 @@ namespace SupermarketWEB.Models
 {
     public class User
     {
+        public int Id { get; set; }
 
         [Required]
         [DataType(DataType.EmailAddress)]
@@ -13,5 +14,6 @@ namespace SupermarketWEB.Models
         [Required]
         [DataType(DataType.Password)]
         public string Password { get; set; }
+        public string Role { get; set; } = "User"; // Default role
     }
 }

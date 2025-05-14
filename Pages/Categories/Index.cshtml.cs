@@ -8,7 +8,8 @@ using Microsoft.AspNetCore.Authorization;
 namespace SupermarketWEB.Pages.Categories
 
 {
-    [Authorize]
+    [Authorize(Roles = "Admin")]
+
     public class IndexModel : PageModel
     {
         private  readonly SupermarketContext _context;
