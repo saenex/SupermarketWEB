@@ -22,13 +22,11 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
                         </li>
+
                         @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
                         {
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-page="/Categories/Index">Categories</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-page="/Products/Index">Products</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-page="/Customers/Index">Customers</a>
@@ -42,16 +40,21 @@
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-page="/Details/Index">Details</a>
                             </li>
+                            <li class="nav-item">
+                              <a class="nav-link text-dark" asp-area="" asp-page="/Users/Index">Users</a>
+                            </li>
                         }
                         </li>
+
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/User/user">User</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Products/Index">Products</a>
                         </li>
+                    
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
                         </li>
 
-                    </ul
+                    </ul>
                 </div>
 
                 <div class="data-flex aling-item-center">
@@ -63,7 +66,7 @@
                     }
                     else
                     {
-                    <a asp-page="Account/Login" class="btn btn-outline-prymary">Login</a>    
+                    <a asp-page="Account/Login" class="btn btn-outline-primary">Login</a>    
                     }
                 </div>
             </div>

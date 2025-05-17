@@ -1,0 +1,31 @@
+﻿@page
+@model SupermarketWEB.Pages.User.IndexModel
+@{
+    ViewData["Title"] = "Users";
+}
+
+<h1>Users</h1>
+<p>This page shows all registered users.</p>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model.Users)
+        {
+            <tr>
+                <td>@user.Email</td>
+                <td>@user.Role</td>
+                <td>
+                    <a class="btn btn-warning btn-sm" asp-page="/Users/Edit" asp-route-id="@user.Id">Edit</a>
+                    <a class="btn btn-danger btn-sm" asp-page="/Users/Delete" asp-route-id="@user.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
